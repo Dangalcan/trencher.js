@@ -301,5 +301,4 @@ module.exports = {
   ForbbidenError ,
   CustomError,
   handleError
-};
-
+}
