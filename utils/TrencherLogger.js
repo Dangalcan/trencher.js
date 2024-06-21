@@ -18,12 +18,12 @@ const levelColors = {
   silly: '\x1b[35m' // Magenta
 };
 
-const resetColor = '\x1b[0m';
+const resetColor = '\x1b[0m'
 
 const logFormat = printf(({ level, message, timestamp }) => {
-  const logLevelColor = levelColors[level];
-  const formattedTimestamp = new Date(timestamp).toLocaleString();
-  return `${formattedTimestamp} [${logLevelColor}${level.toUpperCase()}${resetColor}]: ${message}`;
+  const logLevelColor = levelColors[level]
+  const formattedTimestamp = new Date(timestamp).toLocaleString()
+  return `${formattedTimestamp} [${logLevelColor}${level.toUpperCase()}${resetColor}]: ${message}`
 });
 
 /**

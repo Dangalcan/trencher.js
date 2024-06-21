@@ -5,7 +5,7 @@ import { prepareData } from './TrencherReactNativeFileUploadHelper'
 /**
  * Module for making HTTP Requests easily. It supports and manages
  * entities with one or more pdf files and/or images.
- * @module ReactNativeApiRequestsHelper
+ * @module TrencherReactNativeApiRequestsHelper
  * @fileoverview This module contains functions for making clasic HTTP Requests.
  * @author Daniel Galván Cancio
  */

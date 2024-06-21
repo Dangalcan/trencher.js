@@ -4,7 +4,7 @@ import * as mime from 'react-native-mime-types'
 
 /**
  * Module for managing pdf files and images on entities.
- * @module ReactNativeFileUploadHelper
+ * @module TrencherReactNativeFileUploadHelper
  * @fileoverview This module contains functions for working with entities 
  * which have images and/or pdf files on them.
  * @author Daniel Galván Cancio
