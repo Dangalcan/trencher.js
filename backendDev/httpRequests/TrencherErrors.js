@@ -23,7 +23,7 @@ class TrencherError extends Error {
    */
   constructor(message = 'Trencher error', code, additionalProperties = {}) {
     if (typeof additionalProperties !== 'object' || Array.isArray(additionalProperties)) {
-      throw new Error('Additional Properties must be an object.');
+      throw new Error('Additional Properties must be an object.')
     }
     super(message)
     this.code = code
@@ -248,12 +248,12 @@ class CustomError extends TrencherError {
    * or the respective controller.
    */
   constructor(message, code, additionalProperties = {}) {
-    super(message, code, additionalProperties);
+    super(message, code, additionalProperties)
   
     if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, this.constructor);
+      Error.captureStackTrace(this, this.constructor)
     } else {
-      this.stack = (new Error()).stack;
+      this.stack = (new Error()).stack
     }
   }
 }
