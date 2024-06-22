@@ -1,0 +1,8 @@
+{
+    "name": "reactDependences",
+    "author": "Daniel Galván Cancio",
+    "license": "MIT",
+    "dependencies": {
+        "react": "^18.2.0"
+    }
+}
