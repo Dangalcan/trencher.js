@@ -2,7 +2,6 @@ import React from "react"
 import FormGroup from "./TrencherFormGroup"
 import PropTypes from "prop-types"
 
-
 /**
  * Component that renders a list of form input fields based on the provided `fields` array.
  * Uses the `FormGroup` component to render each individual input field.

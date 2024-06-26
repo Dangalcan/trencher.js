@@ -1,15 +1,17 @@
 import { handleError } from '../TrencherErrors'
 
+
+let baseURL = process.env.API_BASE_URL || ''
+
 /**
  * Module for making HTTP Requests easily. It supports and manages
- * entities with one or more pdf files and/or images.
+ * entities with one or more pdf files and/or images. 
+ * THIS METHODS ALSO WORK WITH VUE PROJECTS!
  * @module TrencherReactApiRequestsHelper
  * @fileoverview This module contains functions for making clasic HTTP Requests.
  * @author Daniel Galván Cancio
 */
 
-
-let baseURL = process.env.API_BASE_URL || ''
 
 /**
  * Sets the base URL for fetch requests.
@@ -23,6 +25,35 @@ function setFetchBaseURL(newBaseURL) {
   baseURL = newBaseURL
 }
 
+
+/**
+ * Creates the full url for fetch requests.
+ * @param {string} baseurl - The base URL.
+ * @param {string} route - The specific part of the URL.
+ * @returns {string} - The full url built in order to make
+ * the fetch request 
+ * @author Daniel Galván Cancio
+*/
+function buildFullUrl(baseurl, route) {
+  let res = ''
+  if(baseurl !== undefined && baseurl !== null){
+
+    if(!baseURL.endsWith('/')) {
+      baseURL += '/';
+    }
+    if(route.startsWith('/')) {
+      route = route.substring(1);
+    }
+    res = baseURL + route;
+  } else {
+    if(route.startsWith('/')) {
+      route = route.substring(1)
+    } 
+    res =  '/' + route
+  }
+  return res
+}
+
 /**
  * Executes a GET request using fetch. You can decide how to manage any errors
  * thrown with customErrorHandler.
@@ -33,7 +64,8 @@ function setFetchBaseURL(newBaseURL) {
 */
 const get = async (route, customErrorHandler = null) => {
   try {
-    const response = await fetch(`${baseURL}${route}`)
+    const fullURL = buildFullUrl(baseURL, route)
+    const response = await fetch(fullURL)
     return await response.json()
   } catch (error) {
     handleError(error,customErrorHandler)
@@ -52,7 +84,8 @@ const get = async (route, customErrorHandler = null) => {
 */
 const post = async (route, data = null, customErrorHandler = null) => {
   try {
-    const response = await fetch(`${baseURL}${route}`, {
+    const fullURL = buildFullUrl(baseURL, route)
+    const response = await fetch(fullURL, {
       method: 'POST',
       body: data
     })
@@ -74,7 +107,8 @@ const post = async (route, data = null, customErrorHandler = null) => {
 */
 const put = async (route, data = null, customErrorHandler = null) => {
   try {
-    const response = await fetch(`${baseURL}${route}`, {
+    const fullURL = buildFullUrl(baseURL, route)
+    const response = await fetch(fullURL, {
       method: 'PUT',
       body: data,
     })
@@ -96,7 +130,8 @@ const put = async (route, data = null, customErrorHandler = null) => {
 */
 const patch = async (route, data = null, customErrorHandler = null) => {
   try {
-    const response = await fetch(`${baseURL}${route}`, {
+    const fullURL = buildFullUrl(baseURL, route)
+    const response = await fetch(fullURL, {
       method: 'PATCH',
       body: data,
     })
@@ -116,7 +151,8 @@ const patch = async (route, data = null, customErrorHandler = null) => {
 */
 const destroy = async (route, customErrorHandler = null) => {
   try {
-    const response = await fetch(`${baseURL}${route}`, {
+    const fullURL = buildFullUrl(baseURL, route)
+    const response = await fetch(fullURL, {
       method: 'DELETE',
     })
     return await response.json()
