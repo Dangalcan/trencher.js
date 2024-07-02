@@ -15,7 +15,7 @@ const path = require('path')
 /**
  * Configures multer in order to save entity's files.
  * @param {Object} options
- * @param {string} [folder = = 'public/uploads'] - Folder where files are going to be saved. Defaultly
+ * @param {string} [folder = 'public/uploads'] - Folder where files are going to be saved. Defaultly
  * its 'public/uploads'. Its strongly recommended create the folder before using the 
  * routes. Moreover, its also recommended to have a different folder for each entity
  * and/or file extensions, such as one for images, other for pdfs, etc.
