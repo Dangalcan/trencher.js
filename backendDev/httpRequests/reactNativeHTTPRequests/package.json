@@ -1,9 +1,10 @@
 {
-    "name":"reactNativeDependences",
-    "author":"Daniel Galván Cancio",
-    "license":"MIT",
-    "dependencies":{
-        "react-native":"^0.74.2",
-        "react-native-mime-types":"^2.5.0"
+    "name": "reactNativeDependences",
+    "author": "Daniel Galván Cancio",
+    "license": "MIT",
+    "dependencies": {
+        "react-native": "^0.74.2",
+        "react-native-mime-types": "^2.5.0",
+        "reactNativeDependences": "file:"
     }
 }

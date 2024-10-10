@@ -6,7 +6,7 @@ let baseURL = process.env.API_BASE_URL || ''
 /**
  * Module for making HTTP Requests easily. It supports and manages
  * entities with one or more pdf files and/or images. 
- * THIS METHODS ALSO WORK WITH VUE PROJECTS!
+ * THIS METHODS ALSO WORK WITH VUE and SVELTE PROJECTS!
  * @module TrencherReactApiRequestsHelper
  * @fileoverview This module contains functions for making clasic HTTP Requests.
  * @author Daniel Galván Cancio
