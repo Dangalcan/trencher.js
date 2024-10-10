@@ -1,0 +1,26 @@
+name: Codacy Analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  codacy-analysis:
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Codacy reporter
+        uses: codacy/codacy-analysis-cli-action@v4
+        with:
+            token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+
+      - name: Run Codacy analysis
+        run: |
+          codacy-analysis-cli analyze --language JavaScript
