@@ -1,6 +1,6 @@
-import axios from 'axios'
-import { handleError } from '../TrencherErrors'
-import { prepareData } from './TrencherReactNativeFileUploadHelper'
+import axios from 'axios';
+import { handleError } from '../TrencherErrors';
+import { prepareData } from './TrencherReactNativeFileUploadHelper';
 
 /**
  * Module for making HTTP Requests easily. It supports and manages
@@ -10,7 +10,7 @@ import { prepareData } from './TrencherReactNativeFileUploadHelper'
  * @author Daniel Galván Cancio
  */
 
-axios.defaults.baseURL = process.env.API_BASE_URL
+axios.defaults.baseURL = process.env.API_BASE_URL;
 
 /**
  * Sets the base URL for Axios requests.
@@ -20,8 +20,8 @@ axios.defaults.baseURL = process.env.API_BASE_URL
  * @returns {void}
  * @author Daniel Galván Cancio
  */
-function setAxiosBaseURL (baseURL) {
-  axios.defaults.baseURL = baseURL
+function setAxiosBaseURL(baseURL) {
+  axios.defaults.baseURL = baseURL;
 }
 
 /**
@@ -34,23 +34,24 @@ function setAxiosBaseURL (baseURL) {
  */
 const get = (route, customErrorHandler = null) => {
   return new Promise(function (resolve, reject) {
-    axios.get(route)
+    axios
+      .get(route)
       .then(function (response) {
-        resolve(response.data)
+        resolve(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         try {
-          handleError(error,customErrorHandler)
+          handleError(error, customErrorHandler);
         } catch (error) {
-          reject(error)
+          reject(error);
         }
-      })
-  })
-}
+      });
+  });
+};
 
 /**
  * Executes a POST request using Axios.  You can decide how to manage any errors
- * thrown with customErrorHandler. The function also manages entities with one or 
+ * thrown with customErrorHandler. The function also manages entities with one or
  * more pdf files and/or images
  * @param {string} route - The route or URL to fetch data from.
  * @param {function} [customErrorHandler=null] - Optional custom error handler function.
@@ -58,26 +59,27 @@ const get = (route, customErrorHandler = null) => {
  * @author Daniel Galván Cancio
  */
 const post = (route, data = null, customErrorHandler = null) => {
-  const { config, preparedData } = prepareData(data)
+  const { config, preparedData } = prepareData(data);
 
   return new Promise(function (resolve, reject) {
-    axios.post(route, preparedData, config)
-      .then(response => {
-        resolve(response.data)
+    axios
+      .post(route, preparedData, config)
+      .then((response) => {
+        resolve(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         try {
-          handleError(error,customErrorHandler)
+          handleError(error, customErrorHandler);
         } catch (error) {
-          reject(error)
+          reject(error);
         }
-      })
-  })
-}
+      });
+  });
+};
 
 /**
  * Executes a PUT request using Axios.  You can decide how to manage any errors
- * thrown with customErrorHandler. The function also manages entities with one or 
+ * thrown with customErrorHandler. The function also manages entities with one or
  * more pdf files and/or images
  * @param {string} route - The route or URL to fetch data from.
  * @param {function} [customErrorHandler=null] - Optional custom error handler function.
@@ -85,26 +87,27 @@ const post = (route, data = null, customErrorHandler = null) => {
  * @author Daniel Galván Cancio
  */
 const put = (route, data = null, customErrorHandler = null) => {
-  const { config, preparedData } = prepareData(data)
+  const { config, preparedData } = prepareData(data);
 
   return new Promise(function (resolve, reject) {
-    axios.put(route, preparedData, config)
-      .then(response => {
-        resolve(response.data)
+    axios
+      .put(route, preparedData, config)
+      .then((response) => {
+        resolve(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         try {
-          handleError(error,customErrorHandler)
+          handleError(error, customErrorHandler);
         } catch (error) {
-          reject(error)
+          reject(error);
         }
-      })
-  })
-}
+      });
+  });
+};
 
 /**
  * Executes a PATCH request using Axios.  You can decide how to manage any errors
- * thrown with customErrorHandler. The function also manages entities with one or 
+ * thrown with customErrorHandler. The function also manages entities with one or
  * more pdf files and/or images
  * @param {string} route - The route or URL to fetch data from.
  * @param {function} [customErrorHandler=null] - Optional custom error handler function.
@@ -112,22 +115,23 @@ const put = (route, data = null, customErrorHandler = null) => {
  * @author Daniel Galván Cancio
  */
 const patch = (route, data = null, customErrorHandler = null) => {
-  const { config, preparedData } = prepareData(data)
+  const { config, preparedData } = prepareData(data);
 
   return new Promise(function (resolve, reject) {
-    axios.patch(route, preparedData, config)
-      .then(response => {
-        resolve(response.data)
+    axios
+      .patch(route, preparedData, config)
+      .then((response) => {
+        resolve(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         try {
-          handleError(error,customErrorHandler)
+          handleError(error, customErrorHandler);
         } catch (error) {
-          reject(error)
+          reject(error);
         }
-      })
-  })
-}
+      });
+  });
+};
 
 /**
  * Executes a DELETE request using Axios. You can decide how to manage any errors
@@ -139,18 +143,19 @@ const patch = (route, data = null, customErrorHandler = null) => {
  */
 const destroy = (route, customErrorHandler = null) => {
   return new Promise(function (resolve, reject) {
-    axios.delete(route)
-      .then(response => {
-        resolve(response.data)
+    axios
+      .delete(route)
+      .then((response) => {
+        resolve(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         try {
-          handleError(error,customErrorHandler)
+          handleError(error, customErrorHandler);
         } catch (error) {
-          reject(error)
+          reject(error);
         }
-      })
-  })
-}
+      });
+  });
+};
 
-export { get, post, put, destroy, patch, setAxiosBaseURL }
+export { get, post, put, destroy, patch, setAxiosBaseURL };

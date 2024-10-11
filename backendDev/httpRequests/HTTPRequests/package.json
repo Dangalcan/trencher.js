@@ -1,15 +1,15 @@
 {
-    "name": "reactDependences",
-    "author": "Daniel Galván Cancio",
-    "license": "MIT",
-    "dependencies": {
-        "react": "^18.2.0",
-        "reactDependences": "file:"
-    },
-    "devDependencies": {
-        "@eslint/js": "^9.12.0",
-        "eslint": "^9.12.0",
-        "globals": "^15.11.0",
-        "prettier": "^3.3.3"
-    }
+  "name": "reactDependences",
+  "author": "Daniel Galván Cancio",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "reactDependences": "file:"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "globals": "^15.11.0",
+    "prettier": "^3.3.3"
+  }
 }

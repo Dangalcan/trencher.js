@@ -1,4 +1,4 @@
-const logger = require("../../utils/TrencherLogger.js");
+const logger = require('../../utils/TrencherLogger.js');
 
 /**
  * Module for managing and defining errors.
@@ -20,12 +20,12 @@ class TrencherError extends Error {
    * @param {Object} [additionalProperties={}] - Additional properties for the error.
    * @throws {Error} - It throws an error in case additionalProperties is not an object.
    */
-  constructor(message = "Trencher error", code, additionalProperties = {}) {
+  constructor(message = 'Trencher error', code, additionalProperties = {}) {
     if (
-      typeof additionalProperties !== "object" ||
+      typeof additionalProperties !== 'object' ||
       Array.isArray(additionalProperties)
     ) {
-      throw new Error("Additional Properties must be an object.");
+      throw new Error('Additional Properties must be an object.');
     }
     super(message);
     this.code = code;
@@ -79,7 +79,7 @@ class InternalServerError extends TrencherError {
    * @param {Object} [additionalProperties={}] - Additional properties for the error.
    */
   constructor(additionalProperties = {}) {
-    super("Internal Server Error", 500, additionalProperties);
+    super('Internal Server Error', 500, additionalProperties);
   }
 }
 
@@ -94,7 +94,7 @@ class InternalTrencherError extends TrencherError {
    * @param {Object} [additionalProperties={}] - Additional properties for the error.
    */
   constructor(additionalProperties = {}) {
-    super("Internal Trencher Error", 500, additionalProperties);
+    super('Internal Trencher Error', 500, additionalProperties);
   }
 }
 
@@ -110,7 +110,7 @@ class ApiError extends TrencherError {
    * @param {any} [code] - Error code. Usually is a number.
    */
   constructor(code, additionalProperties = {}) {
-    super("API error", code, additionalProperties);
+    super('API error', code, additionalProperties);
   }
 }
 
@@ -125,7 +125,7 @@ class ResourceNotFoundError extends TrencherError {
    * @param {Object} [additionalProperties={}] - Additional properties for the error.
    */
   constructor(additionalProperties = {}) {
-    super("Resource not found", 404, additionalProperties);
+    super('Resource not found', 404, additionalProperties);
   }
 }
 
@@ -140,7 +140,7 @@ class ForbbidenError extends TrencherError {
    * @param {Object} [additionalProperties={}] - Additional properties for the error.
    */
   constructor(additionalProperties = {}) {
-    super("Forbiden", 403, additionalProperties);
+    super('Forbiden', 403, additionalProperties);
   }
 }
 
@@ -156,7 +156,7 @@ class IllegalRequestError extends TrencherError {
    * @param {Object} [additionalProperties={}] - Additional properties for the error.
    */
   constructor(additionalProperties = {}) {
-    super("Unavailable for legal reasons", 451, additionalProperties);
+    super('Unavailable for legal reasons', 451, additionalProperties);
   }
 }
 
@@ -171,7 +171,7 @@ class xDError extends TrencherError {
    * Creates an instance of xDError.
    */
   constructor() {
-    super("xD", 538);
+    super('xD', 538);
   }
 }
 
@@ -190,7 +190,7 @@ class UnprocesableEntityError extends TrencherError {
    * or the respective controller.
    */
   constructor(additionalProperties = {}, errors = []) {
-    super("Unprocesable Entity", 422, additionalProperties);
+    super('Unprocesable Entity', 422, additionalProperties);
     this.errors = errors;
   }
 }
@@ -210,7 +210,7 @@ class ValidationError extends TrencherError {
    * or the respective controller.
    */
   constructor(code, additionalProperties = {}, errors) {
-    super("Validation Error", code, additionalProperties, errors);
+    super('Validation Error', code, additionalProperties, errors);
   }
 }
 
@@ -227,7 +227,7 @@ class LoginError extends TrencherError {
    * or the respective controller.
    */
   constructor(additionalProperties = {}, errors) {
-    super("Invalid credentials", 401, additionalProperties);
+    super('Invalid credentials', 401, additionalProperties);
     this.errors = errors;
   }
 }
@@ -264,8 +264,8 @@ class CustomError extends TrencherError {
 function printError(error) {
   const details = error.hasAdditionalProperties()
     ? `: ${JSON.stringify(error.additionalProperties)}`
-    : "";
-  const errors = error.errors ? `: ${JSON.stringify(error.errors)}` : "";
+    : '';
+  const errors = error.errors ? `: ${JSON.stringify(error.errors)}` : '';
   logger.error(`${error.code} ${error.message}${details} ${errors}`);
 }
 
@@ -278,7 +278,7 @@ function printError(error) {
  */
 async function handleError(error, customErrorHandler = null) {
   printError(error);
-  if (customErrorHandler && typeof customErrorHandler === "function") {
+  if (customErrorHandler && typeof customErrorHandler === 'function') {
     await customErrorHandler(error);
     return;
   } else {
