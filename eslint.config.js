@@ -2,20 +2,17 @@
 const js = require('@eslint/js');
 
 module.exports = [
-  js.configs.recommended, // Cargar la configuración recomendada directamente
+  js.configs.recommended,
   {
-    files: ['**/*.{js,jsx,ts,tsx}'], // Especifica los archivos que se van a lintar
-    env: {
-      browser: true, // Permitir código para navegadores
-      node: true, // Permitir código para Node.js
-      es2021: true, // Habilitar características de ES2021
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 12,
+      sourceType: 'module',
+      globals: {
+        browser: true,
+        node: true,
+      },
     },
-    parserOptions: {
-      ecmaVersion: 12, // Soporte para ECMAScript 2021
-      sourceType: 'module', // Permitir imports/exports
-    },
-    rules: {
-      // Añade o ajusta reglas específicas aquí
-    },
+    rules: {},
   },
 ];
