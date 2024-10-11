@@ -31,13 +31,15 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
+          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev
           cd backendDev
           cd httpRequests
           cd HTTPRequests
           npm install
+          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev
           cd ..
           cd reactNativeHTTPRequests
           npm install
-
+          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev
       - name: Run ESLint
         run: npx eslint '**/*.{js,jsx,ts,tsx}'
