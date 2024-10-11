@@ -1,0 +1,52 @@
+name: Prettier Format and Check
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Instalar dependencias (incluye Prettier)
+    - name: Install dependencies
+      run: |
+        npm install
+        cd backendDev
+        cd httpRequests
+        cd HTTPRequests
+        npm install
+        cd ..
+        cd reactNativeHTTPRequests
+        npm install
+
+    # Ejecutar Prettier y formatear los archivos si es necesario
+    - name: Run Prettier and format files
+      run: npx prettier --write '**/*.{js,jsx,ts,tsx,json,css,md}'
+
+    # Verifica si hay cambios después de formatear
+    - name: Check for changes
+      run: |
+        if [[ $(git status --porcelain) ]]; then
+          echo "Changes detected, committing..."
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: format code with Prettier"
+        else
+          echo "No changes detected, everything is formatted correctly."
+        fi
+  
+    - name: Push changes
+      if: success()
+      run: git push
