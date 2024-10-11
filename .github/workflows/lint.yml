@@ -1,7 +1,6 @@
 name: Linting check
 
 on:
-
   push:
     branches:
       - main
