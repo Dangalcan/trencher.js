@@ -48,10 +48,8 @@ jobs:
           git config --local user.email "action@github.com" 
           git add .
           git commit -m "chore: format code with Prettier"
+          git push
         else
           echo "No changes detected, everything is formatted correctly."
         fi
   
-    - name: Push changes
-      if: success()
-      run: git push
