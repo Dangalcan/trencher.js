@@ -29,7 +29,8 @@ jobs:
           cd backendDev
           cd httpRequests
           cd HTTPRequests
-          npm installcd ..
+          npm install
+          cd ..
           cd reactNativeHTTPRequests
           npm install
       
