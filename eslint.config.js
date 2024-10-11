@@ -10,10 +10,7 @@ const compat = new FlatCompat({
 
 module.exports = [
   compat.config({
-    extends: [
-      'eslint:recommended',
-      'airbnb-base', // O el estilo que hayas elegido
-    ],
+    extends: ['eslint:recommended'],
     env: {
       browser: true, // Permitir código que corre en el navegador
       node: true, // Permitir sintaxis de Node.js
