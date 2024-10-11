@@ -1,12 +1,13 @@
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc'; // Para compatibilidad con configuraciones antiguas como 'airbnb-base'
+// eslint.config.js
+const js = require('@eslint/js');
+const { FlatCompat } = require('@eslint/eslintrc');
 
 // Usamos FlatCompat para facilitar la transición desde el formato antiguo de .eslintrc
 const compat = new FlatCompat({
-  baseDirectory: import.meta.url, // Ruta base del proyecto
+  baseDirectory: __dirname, // Ruta base del proyecto
 });
 
-export default [
+module.exports = [
   js.configs.recommended, // Configuraciones recomendadas de ESLint
   ...compat.config({
     extends: [
@@ -22,6 +23,8 @@ export default [
       ecmaVersion: 12, // Usar ECMAScript 2021
       sourceType: 'module', // Permitir import/export
     },
-    rules: {},
+    rules: {
+      // Puedes agregar o ajustar reglas específicas aquí
+    },
   }),
 ];
