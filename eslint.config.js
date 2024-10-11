@@ -1,15 +1,15 @@
 // eslint.config.js
-const js = require('@eslint/js');
-const { FlatCompat } = require('@eslint/eslintrc');
+const { FlatCompat } = require('@eslint/eslintrc'); // Usar require si estás en CommonJS
+const js = require('@eslint/js'); // Mantén la compatibilidad con las configuraciones predeterminadas de ESLint
 
 // Usamos FlatCompat para facilitar la transición desde el formato antiguo de .eslintrc
 const compat = new FlatCompat({
   baseDirectory: __dirname, // Ruta base del proyecto
+  recommendedConfig: js.configs.recommended, // Aquí se debe pasar explícitamente la configuración recomendada
 });
 
 module.exports = [
-  js.configs.recommended, // Configuraciones recomendadas de ESLint
-  ...compat.config({
+  compat.config({
     extends: [
       'eslint:recommended',
       'airbnb-base', // O el estilo que hayas elegido
