@@ -1,27 +1,21 @@
 // eslint.config.js
-const { FlatCompat } = require('@eslint/eslintrc'); // Usar require si estás en CommonJS
-const js = require('@eslint/js'); // Mantén la compatibilidad con las configuraciones predeterminadas de ESLint
-
-// Usamos FlatCompat para facilitar la transición desde el formato antiguo de .eslintrc
-const compat = new FlatCompat({
-  baseDirectory: __dirname, // Ruta base del proyecto
-  recommendedConfig: js.configs.recommended, // Aquí se debe pasar explícitamente la configuración recomendada
-});
+const js = require('@eslint/js');
 
 module.exports = [
-  compat.config({
-    extends: ['eslint:recommended'],
+  js.configs.recommended, // Cargar la configuración recomendada directamente
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'], // Especifica los archivos que se van a lintar
     env: {
-      browser: true, // Permitir código que corre en el navegador
-      node: true, // Permitir sintaxis de Node.js
-      es2021: true, // Usar características de ES2021
+      browser: true, // Permitir código para navegadores
+      node: true, // Permitir código para Node.js
+      es2021: true, // Habilitar características de ES2021
     },
     parserOptions: {
-      ecmaVersion: 12, // Usar ECMAScript 2021
-      sourceType: 'module', // Permitir import/export
+      ecmaVersion: 12, // Soporte para ECMAScript 2021
+      sourceType: 'module', // Permitir imports/exports
     },
     rules: {
-      // Puedes agregar o ajustar reglas específicas aquí
+      // Añade o ajusta reglas específicas aquí
     },
-  }),
+  },
 ];
