@@ -7,6 +7,8 @@ on:
       - Commits Checker
     types:
       - completed
+    conclusions: 
+      - success
 
 jobs:
   prettier:

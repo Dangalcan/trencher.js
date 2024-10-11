@@ -7,6 +7,8 @@ on:
       - Prettify
     types:
       - completed
+    conclusions: 
+      - success
 
 jobs:
   lint:
