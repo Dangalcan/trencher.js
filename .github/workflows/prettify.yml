@@ -1,14 +1,7 @@
 name: Prettify
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
+  workflow_call:
   workflow_run:
     workflows: 
       - Commits Checker

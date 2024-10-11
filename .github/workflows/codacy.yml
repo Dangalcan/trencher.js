@@ -1,18 +1,10 @@
 name: Codacy Analysis
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+  workflow_call:
   workflow_run:
     workflows: 
-      - Commits Checker
-      - "Prettify"
-      - "Linting check"
+      - Linting check
     types:
       - completed
 
