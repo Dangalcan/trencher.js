@@ -20,42 +20,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      # Instalar dependencias (incluye Prettier)
-      - name: Install dependencies
-        run: |
-          npm install
-          cd backendDev
-          cd httpRequests
-          cd HTTPRequests
-          npm install
-          cd ..
-          cd reactNativeHTTPRequests
-          npm install
+    # Instalar dependencias (incluye Prettier)
+    - name: Install dependencies
+      run: |
+        npm install
+        cd backendDev
+        cd httpRequests
+        cd HTTPRequests
+        npm install
+        cd ..
+        cd reactNativeHTTPRequests
+        npm install
 
-      # Ejecutar Prettier y formatear los archivos si es necesario
-      - name: Run Prettier and format files
-        run: npx prettier --write '**/*.{js,jsx,ts,tsx,json,css,md}'
+    # Ejecutar Prettier y formatear los archivos si es necesario
+    - name: Run Prettier and format files
+      run: npx prettier --write '**/*.{js,jsx,ts,tsx,json,css,md}'
 
-      # Verifica si hay cambios después de formatear
-      - name: Check for changes
-        run: |
-          if [[ $(git status --porcelain) ]]; then
-            echo "Changes detected, committing..."
-            git config --local user.name "GitHub Action"
-            git config --local user.email "${{ secrets.TRENCHER_ACTIONS_EMAIL }}" 
-            git add .
-            git commit -m "chore: format code with Prettier"
-          else
-            echo "No changes detected, everything is formatted correctly."
-          fi
-
-      # Push changes
-      - name: Push changes
-        if: success()
-        env:    
-          GITHUB_TOKEN: ${{ secrets.TRENCHER_ACCESS_TOKEN }}  # Usa el token personal de acceso
-        run: |
-          git push https://$GITHUB_TOKEN@github.com/Dangalcan/trencher.js.git HEAD:main  # Cambia 'main' por tu rama
+    # Verifica si hay cambios después de formatear
+    - name: Check for changes
+      run: |
+        if [[ $(git status --porcelain) ]]; then
+          echo "Changes detected, committing..."
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com" 
+          git add .
+          git commit -m "chore: format code with Prettier"
+        else
+          echo "No changes detected, everything is formatted correctly."
+        fi
+  
+    - name: Push changes
+      if: success()
+      run: git push
