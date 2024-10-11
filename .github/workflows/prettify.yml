@@ -1,4 +1,4 @@
-name: Prettier Format and Check
+name: Prettify
 
 on:
   push:
@@ -9,6 +9,11 @@ on:
     branches:
       - main
       - master
+  workflow_run:
+    workflows: 
+      - Commits Checker
+    types:
+      - completed
 
 jobs:
   prettier:

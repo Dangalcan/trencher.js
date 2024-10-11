@@ -8,6 +8,14 @@ on:
     branches:
       - main
 
+  workflow_run:
+    workflows: 
+      - Commits Checker
+      - "Prettify"
+      - "Linting check"
+    types:
+      - completed
+
 jobs:
   codacy-analysis:
     runs-on: ubuntu-latest

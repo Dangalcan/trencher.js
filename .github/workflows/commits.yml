@@ -1,4 +1,4 @@
-name: Commits Syntax Checker
+name: Commits Checker
 
 on:
   pull_request:
