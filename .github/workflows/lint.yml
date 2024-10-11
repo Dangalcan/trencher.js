@@ -25,16 +25,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
-          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev
+          npm install --legacy-peer-deps
+          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev --legacy-peer-deps
           cd backendDev
           cd httpRequests
           cd HTTPRequests
-          npm install
-          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev
+          npm install --legacy-peer-deps
+          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev --legacy-peer-deps
           cd ..
           cd reactNativeHTTPRequests
-          npm install
-          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev
+          npm install --legacy-peer-deps
+          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev --legacy-peer-deps
+
       - name: Run ESLint
         run: npx eslint '**/*.{js,jsx,ts,tsx}'
