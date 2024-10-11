@@ -56,6 +56,6 @@ jobs:
       - name: Push changes
         if: success()
         env:    
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Usa el token por defecto de GitHub Actions
+          GITHUB_TOKEN: ${{ secrets.TRENCHER_ACCESS_TOKEN }}  # Usa el token personal de acceso
         run: |
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/Dangalcan/trencher.js.git HEAD:main
+          git push https://$GITHUB_TOKEN@github.com/Dangalcan/trencher.js.git HEAD:main  # Cambia 'main' por tu rama
