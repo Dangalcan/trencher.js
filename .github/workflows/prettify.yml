@@ -21,17 +21,7 @@ jobs:
     # Instalar dependencias (incluye Prettier)
     - name: Install dependencies
       run: |
-          npm install
-          cd src
-          cd backendDev
-          npm install
-          cd ..
-          cd frontendDev
-          cd react
-          npm install
-          cd ..
-          cd react-native
-          npm install
+          npm run install-all
 
     # Ejecutar Prettier y formatear los archivos si es necesario
     - name: Run Prettier and format files

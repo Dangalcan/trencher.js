@@ -3,6 +3,7 @@
   "description": "This is a js library with miscellanious content to speed up your coding",
   "main": "app.js",
   "scripts": {
+    "install-all": "npm install && cd src && cd backendDev && npm install && cd .. && cd frontendDev && cd react && npm install && cd .. && cd react-native && npm install",
     "test": "npm test"
   },
   "repository": {

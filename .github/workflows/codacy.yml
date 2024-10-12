@@ -20,17 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
-          cd src
-          cd backendDev
-          npm install
-          cd ..
-          cd frontendDev
-          cd react
-          npm install
-          cd ..
-          cd react-native
-          npm install
+          npm run install-all
 
       - name: Make analysis
         uses: codacy/codacy-analysis-cli-action@v4
