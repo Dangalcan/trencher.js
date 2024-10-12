@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 /**
  * Component that wraps a form and handles form submission via a specified method.
- * Using TrencherReactApiRequestsHelper methods are strongly recommended
+ * Using TrencherApiRequestsHelper methods are strongly recommended
  *
  * @param {Object} props - Props object containing url, method, onSubmitSuccess, onSubmitError, and children attributes.
  * @param {string} props.url - The URL endpoint where the form data will be submitted. Remember to specify
  * full URL if you dont want to set the APIBaseURL
  * @param {function} props.method - The method to be used for form submission (e.g., fetch, axios.post).
- * TrencherReactApiRequestsHelper methods are recommended
+ * TrencherApiRequestsHelper methods are recommended
  * @param {function} [props.onSubmitSuccess] - Optional callback function invoked when form submission succeeds.
  * @param {function} [props.onSubmitError] - Optional callback function invoked when form submission fails.
  * @param {ReactNode} props.children - Child components or elements that will be rendered inside the form.

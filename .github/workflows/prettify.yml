@@ -22,12 +22,17 @@ jobs:
     - name: Install dependencies
       run: |
         npm install
+        cd src
         cd backendDev
         cd httpRequests
         cd HTTPRequests
         npm install
         cd ..
         cd reactNativeHTTPRequests
+        npm install
+        cd ..
+        cd ..
+        cd routing
         npm install
 
     # Ejecutar Prettier y formatear los archivos si es necesario
