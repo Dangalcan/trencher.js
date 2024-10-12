@@ -1,4 +1,4 @@
-import { handleError } from '../TrencherErrors';
+import { handleError } from './TrencherErrors';
 
 let baseURL = process.env.API_BASE_URL || '';
 

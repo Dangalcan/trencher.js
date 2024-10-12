@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { handleError } from '../TrencherErrors';
+import { handleError } from '../../../backendDev/httpRequests/TrencherErrors';
 import { prepareData } from './TrencherReactNativeFileUploadHelper';
 
 /**

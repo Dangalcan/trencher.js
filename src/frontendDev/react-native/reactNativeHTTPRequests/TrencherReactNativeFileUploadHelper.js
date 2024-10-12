@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { InternalTrencherError } from '../TrencherErrors';
+import { InternalTrencherError } from '../../../backendDev/httpRequests/TrencherErrors';
 import * as mime from 'react-native-mime-types';
 
 /**
