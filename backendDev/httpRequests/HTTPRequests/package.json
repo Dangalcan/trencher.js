@@ -1,10 +1,8 @@
 {
-  "name": "reactDependences",
   "author": "Daniel Galván Cancio",
   "license": "MIT",
   "dependencies": {
-    "react": "^18.2.0",
-    "reactDependences": "file:"
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.12.0",
