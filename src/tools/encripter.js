@@ -2,7 +2,7 @@ const forge = require('node-forge');
 require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
-const logger = require('./utils/TrencherLogger');
+const logger = require('./TrencherLogger.js');
 
 /**
  * Module for encripting and decripting based on node-forge

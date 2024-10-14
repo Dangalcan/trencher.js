@@ -1,4 +1,4 @@
-const logger = require('../../utils/TrencherLogger.js');
+const logger = require('../../tools/TrencherLogger.js');
 
 /**
  * Module for managing and defining errors.
