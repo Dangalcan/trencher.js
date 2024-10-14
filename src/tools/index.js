@@ -1,10 +1,7 @@
 const logger = require('./TrencherLogger.js')
-const { encryptPropertiesWithEnvValues,decryptPropertiesWithEnvValues,encryptPropertiesWithRamdomKey,decryptPropertiesWithRamdomKey, } = require('./encripter.js')
+const Encripter = require('./encripter.js')
 
 module.exports = {
     logger,
-    encryptPropertiesWithEnvValues,
-    decryptPropertiesWithEnvValues,
-    encryptPropertiesWithRamdomKey,
-    decryptPropertiesWithRamdomKey,
+    Encripter
 }

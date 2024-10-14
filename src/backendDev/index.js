@@ -1,19 +1,7 @@
-const { handleValidation } = require("./middlewares/TrencherValidationHandlingMiddleware");
-const { CRUDRoutes,configureMulter,createRoute,getAllRoute,getRoute,updateRoute,patchRoute,deleteRoute,customGETRoute,customPOSTRoute,customPUTRoute,customPATCHRoute,customDELETERoute, } = require("./routing/TrencherRoutesHelper")
+const TrencherMiddlewares = require("./middlewares/TrencherValidationHandlingMiddleware");
+const TrencherRoutesHelper = require("./routing/TrencherRoutesHelper")
 
 module.exports = {
-    handleValidation,
-    CRUDRoutes,
-    configureMulter,
-    createRoute,
-    getAllRoute,
-    getRoute,
-    updateRoute,
-    patchRoute,
-    deleteRoute,
-    customGETRoute,
-    customPOSTRoute,
-    customPUTRoute,
-    customPATCHRoute,
-    customDELETERoute,
+    TrencherMiddlewares,
+    TrencherRoutesHelper
 }
