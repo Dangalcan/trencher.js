@@ -7,14 +7,6 @@ const {
 const path = require('path');
 
 /**
- * Module for making easier your routing system.
- * @module TrencherRoutesHelper
- * @fileoverview This module contains functions for routing your database in an easy
- * and standarized way.
- * @author Daniel Galván Cancio
- */
-
-/**
  * Configures multer in order to save entity's files.
  * @param {Object} options
  * @param {string} [folder = 'public/uploads'] - Folder where files are going to be saved. Defaultly

@@ -2,13 +2,6 @@ const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, printf } = format;
 require('dotenv').config();
 
-/**
- * Module for logging the app (Its based on winston).
- * @module TrencherLogger
- * @fileoverview This module contains the library logger.
- * @author Daniel Galván Cancio
- */
-
 const levelColors = {
   info: '\x1b[34m', // Blue
   warn: '\x1b[33m', // Yellow
