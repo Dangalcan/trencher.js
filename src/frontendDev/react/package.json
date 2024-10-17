@@ -1,7 +1,9 @@
 {
   "author": "Daniel Galván Cancio",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.2.0"
   },
   "devDependencies": {
